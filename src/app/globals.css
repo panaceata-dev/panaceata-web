@@ -1,0 +1,243 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-space-grotesk);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-teal: hsl(174 62% 47%);
+  --color-navy: hsl(220 60% 20%);
+  --color-dark: hsl(222 30% 12%);
+  --color-dark-card: hsl(0 0% 100%);
+  --color-dark-secondary: hsl(220 15% 85%);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: hsl(220 20% 97%);
+  --foreground: hsl(220 25% 10%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(220 25% 10%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(220 25% 10%);
+  --primary: hsl(174 62% 47%);
+  --primary-foreground: hsl(220 25% 5%);
+  --secondary: hsl(213 25% 93%);
+  --secondary-foreground: hsl(220 25% 10%);
+  --muted: hsl(213 25% 93%);
+  --muted-foreground: hsl(220 10% 46%);
+  --accent: hsl(220 60% 20%);
+  --accent-foreground: hsl(0 0% 98%);
+  --destructive: hsl(0 84% 60%);
+  --border: hsl(220 13% 91%);
+  --input: hsl(220 13% 91%);
+  --ring: hsl(174 62% 47%);
+  --chart-1: hsl(174 62% 47%);
+  --chart-2: hsl(220 60% 20%);
+  --chart-3: hsl(197 37% 24%);
+  --chart-4: hsl(43 74% 66%);
+  --chart-5: hsl(27 87% 67%);
+  --radius: 0.75rem;
+  --sidebar: hsl(213 25% 95%);
+  --sidebar-foreground: hsl(222 47% 11%);
+  --sidebar-primary: hsl(174 62% 47%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(213 25% 93%);
+  --sidebar-accent-foreground: hsl(222 47% 11%);
+  --sidebar-border: hsl(214 20% 88%);
+  --sidebar-ring: hsl(174 62% 47%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+.animation-delay-800 {
+  animation-delay: 800ms;
+}
+
+/* Scroll-triggered reveal animation */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  opacity: 0;
+  animation: reveal 0.7s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.animate-reveal.is-visible {
+  animation-play-state: running;
+}
+
+/* Staggered children animation */
+.stagger-children > * {
+  opacity: 0;
+  animation: reveal 0.6s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.stagger-children.is-visible > *:nth-child(1) { animation-play-state: running; animation-delay: 0ms; }
+.stagger-children.is-visible > *:nth-child(2) { animation-play-state: running; animation-delay: 100ms; }
+.stagger-children.is-visible > *:nth-child(3) { animation-play-state: running; animation-delay: 200ms; }
+.stagger-children.is-visible > *:nth-child(4) { animation-play-state: running; animation-delay: 300ms; }
+.stagger-children.is-visible > *:nth-child(5) { animation-play-state: running; animation-delay: 400ms; }
+.stagger-children.is-visible > *:nth-child(6) { animation-play-state: running; animation-delay: 500ms; }
+.stagger-children.is-visible > *:nth-child(7) { animation-play-state: running; animation-delay: 600ms; }
+.stagger-children.is-visible > *:nth-child(8) { animation-play-state: running; animation-delay: 700ms; }
+.stagger-children.is-visible > *:nth-child(9) { animation-play-state: running; animation-delay: 800ms; }
+
+/* Scale-in animation */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+/* Slide-in-left */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.7s ease-out forwards;
+}
+
+/* Slide-in-right */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.7s ease-out forwards;
+}
