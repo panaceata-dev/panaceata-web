@@ -1,187 +1,39 @@
-"use client";
-
-import PageHero from "@/components/sections/PageHero";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Clock, User } from "lucide-react";
-import Link from "next/link";
-
 const blogPosts = [
-  {
-    title: "The Future of Cloud Migration: Trends to Watch in 2025",
-    excerpt:
-      "Cloud migration continues to evolve rapidly. Discover the key trends shaping enterprise cloud strategies and how to stay ahead of the curve.",
-    category: "Cloud",
-    author: "Panaceata Team",
-    date: "March 15, 2025",
-    readTime: "5 min read",
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/263366e49_generated_1c84f0ac.png",
-  },
-  {
-    title: "How AI is Transforming Application Modernization",
-    excerpt:
-      "Artificial intelligence is revolutionizing how legacy applications are assessed, refactored, and modernized. Learn about the latest AI-driven approaches.",
-    category: "AI & ML",
-    author: "Panaceata Team",
-    date: "March 8, 2025",
-    readTime: "7 min read",
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/e5c86a91b_generated_f4112315.png",
-  },
-  {
-    title: "Building Scalable Data Pipelines: A Practical Guide",
-    excerpt:
-      "A comprehensive guide to designing and implementing data pipelines that scale with your business needs, from batch processing to real-time streaming.",
-    category: "Data Engineering",
-    author: "Panaceata Team",
-    date: "February 28, 2025",
-    readTime: "8 min read",
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/137b9b109_generated_6419fdc8.png",
-  },
-  {
-    title: "Why Outsource Development? Benefits Beyond Cost Savings",
-    excerpt:
-      "Outsourcing software development offers much more than cost savings. Explore the strategic advantages that help businesses innovate faster.",
-    category: "Business",
-    author: "Panaceata Team",
-    date: "February 20, 2025",
-    readTime: "4 min read",
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/d2fee1fab_generated_870439a2.png",
-  },
-  {
-    title: "Managed Cloud Operations: Best Practices for 2025",
-    excerpt:
-      "Learn the best practices for managing cloud infrastructure efficiently, including cost optimization, security, and performance monitoring strategies.",
-    category: "Cloud",
-    author: "Panaceata Team",
-    date: "February 12, 2025",
-    readTime: "6 min read",
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/93570f2be_generated_c01812ae.png",
-  },
-  {
-    title: "Digital Transformation: Lessons from 50+ Projects",
-    excerpt:
-      "After delivering 50+ successful projects, we share the key lessons learned and common pitfalls to avoid in your digital transformation journey.",
-    category: "Digital Transformation",
-    author: "Panaceata Team",
-    date: "February 5, 2025",
-    readTime: "10 min read",
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/7cd460fb0_generated_87430cf9.png",
-  },
+  { title: "The Future of Cloud Migration: Trends to Watch in 2025", excerpt: "Cloud migration continues to evolve rapidly. Discover the key trends shaping enterprise cloud strategies.", category: "Cloud", date: "March 15, 2025", readTime: "5 min read", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80" },
+  { title: "How AI is Transforming Application Modernization", excerpt: "Artificial intelligence is revolutionizing how legacy applications are assessed, refactored, and modernized.", category: "AI & ML", date: "March 8, 2025", readTime: "7 min read", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" },
+  { title: "Building Scalable Data Pipelines: A Practical Guide", excerpt: "A comprehensive guide to designing and implementing data pipelines that scale with your business needs.", category: "Data Engineering", date: "February 28, 2025", readTime: "8 min read", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" },
+  { title: "Why Outsource Development? Benefits Beyond Cost Savings", excerpt: "Outsourcing software development offers much more than cost savings. Explore the strategic advantages.", category: "Business", date: "February 20, 2025", readTime: "4 min read", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" },
+  { title: "Managed Cloud Operations: Best Practices for 2025", excerpt: "Learn the best practices for managing cloud infrastructure efficiently, including cost optimization.", category: "Cloud", date: "February 12, 2025", readTime: "6 min read", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" },
+  { title: "Digital Transformation: Lessons from 50+ Projects", excerpt: "After delivering 50+ successful projects, we share the key lessons learned and common pitfalls to avoid.", category: "Digital Transformation", date: "February 5, 2025", readTime: "10 min read", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" },
 ];
 
-const categories = [
-  "All",
-  "Cloud",
-  "AI & ML",
-  "Data Engineering",
-  "Business",
-  "Digital Transformation",
-];
-
-export default function BlogPage() {
+export default function Blog() {
   return (
-    <div className="min-h-screen bg-background">
-      <PageHero
-        eyebrow="Our Blog"
-        title="Insights &"
-        highlight="Perspectives"
-        description="Stay up to date with the latest trends, best practices, and insights from our team of technology experts."
-      />
-
-      {/* Categories */}
-      <section className="py-8 border-b border-border/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <Badge
-                key={category}
-                variant={category === "All" ? "default" : "outline"}
-                className="cursor-pointer px-4 py-1.5 text-sm"
-              >
-                {category}
-              </Badge>
-            ))}
-          </div>
+    <div className="pt-16">
+      <section className="bg-gray-50 py-20 px-6">
+        <div className="max-w-7xl mx-auto text-center scroll-reveal">
+          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Our Blog</p>
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Insights &amp; Perspectives</h1>
+          <p className="text-gray-500 max-w-2xl mx-auto">Stay up to date with the latest trends, best practices, and insights from our team of technology experts.</p>
         </div>
       </section>
 
-      {/* Blog Posts Grid */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((post) => (
-              <article
-                key={post.title}
-                className="bg-card rounded-2xl border border-border/60 overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all group"
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+      <section className="py-20 max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger">
+          {blogPosts.map((post) => (
+            <article key={post.title} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover-lift">
+              <img src={post.img} alt={post.title} className="w-full h-48 object-cover" />
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">{post.category}</span>
+                  <span className="text-xs text-gray-400">{post.readTime}</span>
                 </div>
-                <div className="p-6">
-                  <Badge variant="secondary" className="mb-3 text-xs">
-                    {post.category}
-                  </Badge>
-                  <h3 className="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5" />
-                      {post.author}
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5" />
-                      {post.readTime}
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button
-              variant="outline"
-              className="font-semibold px-8 border-foreground/20 hover:bg-foreground/5"
-            >
-              Load More Articles <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="py-20 lg:py-28 bg-secondary">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Subscribe to Our Newsletter
-          </h2>
-          <p className="text-muted-foreground mb-8">
-            Get the latest articles and insights delivered directly to your inbox.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 h-12 rounded-lg border border-border/60 bg-card px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-            />
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-12 px-6">
-              Subscribe
-            </Button>
-          </form>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug">{post.title}</h3>
+                <p className="text-gray-500 text-sm mb-4">{post.excerpt}</p>
+                <p className="text-xs text-gray-400">{post.date}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </div>

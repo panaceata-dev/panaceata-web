@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
+import RevealProvider from "@/components/RevealProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -23,6 +24,9 @@ export const metadata: Metadata = {
     "Panaceata Inc is a global custom software development company specializing in application modernization, cloud migration, data engineering, outsource development, and managed cloud operations.",
   keywords:
     "custom software development, cloud migration services, application modernization, data engineering, business intelligence, outsource development, managed cloud operations, digital transformation",
+  icons: {
+    icon: "/image.png",
+  },
   openGraph: {
     type: "website",
     title: "Panaceata Inc | Custom Software Development & Cloud Solutions",
@@ -49,7 +53,11 @@ export default function RootLayout({
         })(window,document,'script','dataLayer','GTM-T6ZJGF3T');`,
                 }}
       />
-      <body className="min-h-screen antialiased">
+      <Script
+        src="https://www.google.com/recaptcha/api.js"
+        strategy="afterInteractive"
+      />
+      <body className="min-h-screen flex flex-col antialiased">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-T6ZJGF3T"
@@ -58,9 +66,11 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <Navbar />
-        {children}
-        <Footer />
+        <RevealProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </RevealProvider>
       </body>
     </html>
   );

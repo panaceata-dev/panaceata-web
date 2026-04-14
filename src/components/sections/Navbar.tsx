@@ -14,6 +14,7 @@ const navLinks = [
   { label: "Products", href: "/products" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -32,29 +33,31 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl shadow-sm border-b border-border/50"
+          ? "bg-background/90 backdrop-blur-xl shadow-sm border-b border-border/50"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1">
-          <span className="text-primary font-bold text-xl font-display">P</span>
-          <span className="font-display text-xl font-semibold text-foreground">anaceata</span>
+        <Link href="/" className="flex items-center">
+          <span className="font-display text-2xl font-bold tracking-tight">
+            <span className="text-primary">P</span>
+            <span className="text-foreground">anaceata</span>
+          </span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 ${
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                   isActive
-                    ? "text-primary border border-primary/30 rounded-full px-4 py-1.5 bg-primary/5"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
                 {link.label}
@@ -67,7 +70,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center">
           <Button
             render={<Link href="/contact" />}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6 rounded-full"
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold px-6 h-11 bg-primary text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           >
             Get In Touch
           </Button>
@@ -83,19 +86,24 @@ export default function Navbar() {
           </SheetTrigger>
           <SheetContent side="right" className="w-72 bg-background border-border">
             <div className="flex flex-col gap-5 mt-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-base font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`text-base font-medium transition-colors ${
+                      isActive ? "text-primary" : "text-foreground hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <Button
                 render={<Link href="/contact" onClick={() => setOpen(false)} />}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold mt-4"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold mt-4 rounded-md shadow"
               >
                 Get In Touch
               </Button>

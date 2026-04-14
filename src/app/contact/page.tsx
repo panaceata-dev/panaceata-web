@@ -1,184 +1,152 @@
-"use client";
+import { sendContactEmail } from "@/app/actions/contact";
+import ServiceSelect from "@/components/ServiceSelect";
+import CaptchaWidget from "@/components/CaptchaWidget";
 
-import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+export default async function Contact({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
+  const { status } = await searchParams;
 
-const offices = [
-  {
-    country: "USA",
-    company: "Panaceata Inc",
-    address: "5 Senator Buck Court, South Glastonbury, CT 06073, USA",
-    phone: "+1 (860) 593-2437",
-  },
-  {
-    country: "SRI LANKA",
-    company: "Panaceata (Private) Limited",
-    address: "328/2, Temple Lane, Kaduwela Road, Battaramulla, Sri Lanka",
-    phone: "+94 011 287 62 00",
-  },
-];
-
-export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <section className="pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <main>
+      <section className="pt-28 lg:pt-36 pb-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left Column - Info */}
-            <div className="animate-fade-in-up">
-              <span className="font-display font-semibold text-sm tracking-wider uppercase text-primary block mb-4">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+
+            {/* ── Left Column: Info ── */}
+            <div className="scroll-slide-left">
+              <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3">
                 Contact Us
               </span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight mb-6">
+              <h1 className="font-display text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
                 Let&apos;s Start a Conversation
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-10">
                 Find out what we can do for you. Share your project details and
                 our team will get back to you within 24 hours.
               </p>
 
-              {/* Email */}
-              <div className="flex items-start gap-4 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">Email</p>
-                  <a
-                    href="mailto:info@panaceata.com"
-                    className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
-                  >
-                    info@panaceata.com
-                  </a>
-                </div>
-              </div>
-
-              {/* Response Time */}
-              <div className="flex items-start gap-4 mb-10">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Clock className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">
-                    Response Time
-                  </p>
-                  <p className="text-sm font-semibold text-foreground">
-                    Within 24 hours
-                  </p>
-                </div>
-              </div>
-
-              {/* Our Offices */}
-              <h2 className="font-display text-xl font-bold text-foreground mb-4">
-                Our Offices
-              </h2>
-              <div className="space-y-4">
-                {offices.map((office) => (
-                  <div
-                    key={office.country}
-                    className="bg-card rounded-xl border border-border/60 p-5"
-                  >
-                    <p className="text-xs font-semibold tracking-wider uppercase text-primary mb-1">
-                      {office.country}
-                    </p>
-                    <p className="text-base font-semibold text-foreground mb-2">
-                      {office.company}
-                    </p>
-                    <div className="flex items-start gap-2 mb-1.5">
-                      <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
-                      <p className="text-sm text-muted-foreground">
-                        {office.address}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-4 h-4 text-muted-foreground shrink-0" />
-                      <p className="text-sm text-muted-foreground">
-                        {office.phone}
-                      </p>
-                    </div>
+              {/* Contact Info Items */}
+              <div className="space-y-6 mb-10">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
                   </div>
-                ))}
+                  <div>
+                    <p className="text-xs text-muted-foreground">Email</p>
+                    <p className="text-sm font-medium text-foreground">info@panaceata.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Response Time</p>
+                    <p className="text-sm font-medium text-foreground">Within 24 hours</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Offices */}
+              <h3 className="font-display text-lg font-semibold mb-4 text-foreground">
+                Our Offices
+              </h3>
+              <div className="space-y-4">
+                <div className="p-4 rounded-xl bg-card border border-border/60 hover-lift">
+                  <p className="text-xs font-semibold tracking-wide uppercase text-primary mb-1">USA</p>
+                  <p className="text-sm font-medium text-foreground">Panaceata Inc</p>
+                  <div className="flex items-start gap-2 mt-2">
+                    <svg className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                    <p className="text-xs text-muted-foreground">5 Senator Buck Court, South Glastonbury, CT 06073, USA</p>
+                  </div>
+                  <div className="flex items-center gap-2 mt-1">
+                    <svg className="w-3.5 h-3.5 text-muted-foreground shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                    <p className="text-xs text-muted-foreground">+1 (860) 593-2437</p>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-card border border-border/60 hover-lift">
+                  <p className="text-xs font-semibold tracking-wide uppercase text-primary mb-1">Sri Lanka</p>
+                  <p className="text-sm font-medium text-foreground">Panaceata (Private) Limited</p>
+                  <div className="flex items-start gap-2 mt-2">
+                    <svg className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                    <p className="text-xs text-muted-foreground">328/2, Temple Lane, Kaduwela Road, Battaramulla, Sri Lanka</p>
+                  </div>
+                  <div className="flex items-center gap-2 mt-1">
+                    <svg className="w-3.5 h-3.5 text-muted-foreground shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                    <p className="text-xs text-muted-foreground">+94 011 287 62 00</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Right Column - Form */}
-            <div className="animate-fade-in-up animation-delay-200">
-              <div className="bg-card rounded-2xl border border-border/60 p-6 lg:p-8 shadow-sm">
-                <h2 className="font-display text-xl font-bold text-foreground mb-1">
+            {/* ── Right Column: Form ── */}
+            <div className="sticky top-28 self-start scroll-slide-right">
+              <div className="bg-white rounded-2xl p-6 lg:p-8 border border-[#E2E8F0] shadow-md max-w-[600px]">
+                <h2 className="font-display text-xl font-bold mb-1 text-foreground">
                   Send us a message
                 </h2>
-                <p className="text-muted-foreground text-sm mb-6">
+                <p className="text-sm text-muted-foreground mb-6">
                   We&apos;d love to hear about your project.
                 </p>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      required
-                      className="w-full h-12 rounded-xl border border-border/60 bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Full Name *"
-                    />
-                    <input
-                      type="email"
-                      required
-                      className="w-full h-12 rounded-xl border border-border/60 bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Email Address *"
-                    />
+
+                {status === "sent" && (
+                  <div className="text-center py-10">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      <svg className="text-primary w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z" /><path d="M22 2 11 13" /></svg>
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-foreground mb-2">Message Sent!</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Thanks for reaching out. We&apos;ll get back to you within 24 hours.
+                    </p>
+                    <a href="/contact" className="mt-6 inline-block text-sm text-primary font-medium hover:underline">
+                      Send another message
+                    </a>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      className="w-full h-12 rounded-xl border border-border/60 bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Company Name"
-                    />
-                    <input
-                      type="tel"
-                      className="w-full h-12 rounded-xl border border-border/60 bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Phone Number"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      className="w-full h-12 rounded-xl border border-border/60 bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Country"
-                    />
-                    <select className="w-full h-12 rounded-xl border border-border/60 bg-background px-4 text-sm text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary">
-                      <option value="">Service Interest</option>
-                      <option value="app-modernization">
-                        Application Modernization
-                      </option>
-                      <option value="cloud-migration">Cloud Migration</option>
-                      <option value="data-engineering">
-                        Data Engineering &amp; BI
-                      </option>
-                      <option value="outsource-dev">
-                        Outsource Development
-                      </option>
-                      <option value="managed-cloud">
-                        Managed Cloud Operations
-                      </option>
-                    </select>
-                  </div>
-                  <textarea
-                    required
-                    rows={6}
-                    className="w-full rounded-xl border border-border/60 bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-vertical"
-                    placeholder="Your Message *"
-                  />
-                  <Button
-                    type="submit"
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-13 text-base rounded-xl"
-                  >
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
-                  </Button>
-                </form>
+                )}
+
+                {status === "error" && (
+                  <p className="text-sm text-destructive mb-4">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
+
+                {status !== "sent" && (
+                  <form action={sendContactEmail} className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <input type="text" name="name" required placeholder="Full Name *" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+                      <input type="email" name="email" required placeholder="Email Address *" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <input type="text" name="company" placeholder="Company Name" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+                      <input type="tel" name="phone" placeholder="Phone Number" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <input type="text" name="country" placeholder="Country" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+                      <ServiceSelect />
+                    </div>
+
+                    <textarea name="message" required placeholder="Your Message *" rows={5} className="min-h-[120px] w-full resize-none rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 py-3 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+
+                    <CaptchaWidget />
+
+                    <button
+                      type="submit"
+                      className="flex h-[48px] w-full items-center justify-center gap-2 rounded-[10px] bg-[#0F766E] text-base font-semibold text-white shadow transition-colors hover:bg-[#0D6D66]"
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z" /><path d="M22 2 11 13" /></svg>
+                      Send Message
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
+
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

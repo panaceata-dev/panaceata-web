@@ -1,101 +1,47 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { SectionHeader } from "./Services";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { sendContactEmail } from "@/app/actions/contact";
+import ServiceSelect from "@/components/ServiceSelect";
+import CaptchaWidget from "@/components/CaptchaWidget";
 
 export default function CTA() {
-  const formRef = useScrollReveal();
-
   return (
-    <section className="py-20 lg:py-28">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SectionHeader
-          eyebrow="Ready to Get Started?"
-          title="Let's Build Something Great Together"
-          description="Tell us about your project and we'll get back to you within 24 hours."
-        />
+    <section className="py-20 bg-white">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="text-center mb-10 scroll-reveal">
+          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
+            Ready to Get Started?
+          </p>
+          <h2 className="font-display text-4xl font-bold text-foreground mb-4">
+            Let&apos;s Build Something Great Together
+          </h2>
+          <p className="text-muted-foreground">
+            Tell us about your project and we&apos;ll get back to you within 24 hours.
+          </p>
+        </div>
 
-        <div
-          ref={formRef}
-          className="bg-card rounded-2xl p-6 lg:p-10 border border-border/60 shadow-sm animate-reveal"
-        >
-          {/* Contact Form */}
-          <form className="space-y-4 text-left">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="w-full h-10 rounded-lg border border-border/60 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                  placeholder="John Doe"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  required
-                  className="w-full h-10 rounded-lg border border-border/60 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                  placeholder="john@example.com"
-                />
-              </div>
+        <div className="bg-white rounded-2xl p-6 lg:p-10 border border-[#E2E8F0] shadow-md scroll-reveal">
+          <form action={sendContactEmail} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" name="name" required placeholder="Full Name *" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+              <input type="email" name="email" required placeholder="Email Address *" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  className="w-full h-10 rounded-lg border border-border/60 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                  placeholder="Your Company"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  Service Interest
-                </label>
-                <select className="w-full h-10 rounded-lg border border-border/60 bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary">
-                  <option value="">General Inquiry</option>
-                  <option value="app-modernization">
-                    Application Modernization
-                  </option>
-                  <option value="cloud-migration">Cloud Migration</option>
-                  <option value="data-engineering">
-                    Data Engineering & BI
-                  </option>
-                  <option value="outsource-dev">Outsource Development</option>
-                  <option value="managed-cloud">
-                    Managed Cloud Operations
-                  </option>
-                </select>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" name="company" placeholder="Company Name" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+              <input type="tel" name="phone" placeholder="Phone Number" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
-                Your Message *
-              </label>
-              <textarea
-                required
-                rows={4}
-                className="w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none"
-                placeholder="Tell us about your project..."
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" name="country" placeholder="Country" className="h-[44px] w-full rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+              <ServiceSelect />
             </div>
-            <Button
+            <textarea name="message" required placeholder="Your Message *" rows={4} className="min-h-[120px] w-full resize-none rounded-[10px] border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 py-3 text-sm text-gray-900 placeholder-[#94A3B8] outline-none transition-colors focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30" />
+            <CaptchaWidget />
+
+            <button
               type="submit"
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-12 text-base"
+              className="flex h-[48px] w-full items-center justify-center gap-2 rounded-[10px] bg-[#0F766E] text-base font-semibold text-white shadow transition-colors hover:bg-[#0D6D66]"
             >
-              Discuss Your Project{" "}
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z" /><path d="M22 2 11 13" /></svg>
+              Send Message
+            </button>
           </form>
         </div>
       </div>

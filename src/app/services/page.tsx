@@ -1,246 +1,49 @@
-"use client";
-
-import PageHero from "@/components/sections/PageHero";
-import { SectionHeader } from "@/components/sections/Services";
-import { Button } from "@/components/ui/button";
-import {
-  Layers,
-  Cloud,
-  Database,
-  Code2,
-  Server,
-  ArrowRight,
-  CheckCircle2,
-} from "lucide-react";
 import Link from "next/link";
 
 const services = [
-  {
-    icon: Layers,
-    title: "Application Modernization",
-    description:
-      "Revamp outdated applications with the latest technologies and industry best practices for enhanced performance, scalability, and user experience.",
-    features: [
-      "Legacy system assessment & planning",
-      "Microservices architecture migration",
-      "API development & integration",
-      "UI/UX modernization",
-      "Performance optimization",
-      "Cloud-native transformation",
-    ],
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/e5c86a91b_generated_f4112315.png",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Migration Services",
-    description:
-      "Seamlessly transition your infrastructure to leading cloud platforms with improved agility, security, and cost savings.",
-    features: [
-      "Cloud readiness assessment",
-      "Migration strategy & roadmap",
-      "AWS, Azure & GCP expertise",
-      "Hybrid cloud solutions",
-      "Cost optimization",
-      "Security & compliance",
-    ],
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/263366e49_generated_1c84f0ac.png",
-  },
-  {
-    icon: Database,
-    title: "Data Engineering & BI",
-    description:
-      "Transform raw data into actionable intelligence with advanced analytics tools, data pipelines, and business intelligence dashboards.",
-    features: [
-      "Data pipeline development",
-      "Data warehouse design",
-      "ETL/ELT processes",
-      "Business intelligence dashboards",
-      "Real-time analytics",
-      "Machine learning integration",
-    ],
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/137b9b109_generated_6419fdc8.png",
-  },
-  {
-    icon: Code2,
-    title: "Outsource Development",
-    description:
-      "Boost your development capabilities with a skilled dedicated team delivering high-quality, scalable solutions on time and within budget.",
-    features: [
-      "Dedicated development teams",
-      "Staff augmentation",
-      "Full-stack development",
-      "Agile project management",
-      "Quality assurance & testing",
-      "DevOps & CI/CD pipelines",
-    ],
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/d2fee1fab_generated_870439a2.png",
-  },
-  {
-    icon: Server,
-    title: "Managed Cloud Operations",
-    description:
-      "Comprehensive cloud support ensuring your environment is optimized, secure, and scalable with 24/7 monitoring and management.",
-    features: [
-      "24/7 monitoring & support",
-      "Infrastructure management",
-      "Security management",
-      "Cost optimization",
-      "Backup & disaster recovery",
-      "Performance tuning",
-    ],
-    image:
-      "https://media.base44.com/images/public/69d57762e0f16dce3d358cd8/93570f2be_generated_c01812ae.png",
-  },
+  { title: "Application Modernization Services", desc: "Experience enhanced performance and improved user satisfaction with our cutting-edge application modernization services. We revamp your outdated applications, incorporating the latest technologies and industry best practices.", features: ["Legacy System Migration", "UI/UX Redesign", "Microservices Architecture", "Performance Optimization"], img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&q=80" },
+  { title: "Cloud Migration Services", desc: "Embrace the flexibility and scalability of the cloud with our seamless migration services. Our experts assess your infrastructure and design a customized migration strategy to ensure a smooth transition.", features: ["Infrastructure Assessment", "Migration Strategy", "Multi-Cloud Support", "Zero Downtime Migration"], img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=700&q=80" },
+  { title: "Data Engineering & BI Services", desc: "Leverage the power of data to drive informed decision-making. Our data engineering and business intelligence services help you extract meaningful insights from vast datasets.", features: ["Data Pipeline Design", "Real-time Analytics", "Dashboard Development", "Predictive Modeling"], img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80" },
+  { title: "Outsource Development Services", desc: "Boost your development capabilities without straining your resources. Our reliable outsource development services provide you with a skilled team dedicated to turning your ideas into reality.", features: ["Dedicated Teams", "Agile Methodology", "Full-Stack Development", "Quality Assurance"], img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80" },
+  { title: "Managed Cloud Operations", desc: "Focus on your core business while we take care of your cloud infrastructure. Our managed cloud services provide comprehensive support, ensuring your cloud environment is optimized, secure, and scalable.", features: ["24/7 Monitoring", "Security Management", "Auto-Scaling", "Cost Optimization"], img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" },
 ];
 
-const process = [
-  {
-    step: "01",
-    title: "Discovery & Analysis",
-    description:
-      "We start by understanding your business objectives, technical requirements, and challenges to define a clear project scope.",
-  },
-  {
-    step: "02",
-    title: "Strategy & Planning",
-    description:
-      "Our architects design a comprehensive solution with detailed timelines, milestones, and resource allocation.",
-  },
-  {
-    step: "03",
-    title: "Design & Prototype",
-    description:
-      "We create intuitive UI/UX designs and interactive prototypes, iterating based on your feedback.",
-  },
-  {
-    step: "04",
-    title: "Development & Testing",
-    description:
-      "Agile development with continuous integration, thorough testing, and regular demos to keep you in the loop.",
-  },
-  {
-    step: "05",
-    title: "Deployment & Support",
-    description:
-      "Seamless deployment with comprehensive training, documentation, and ongoing support to ensure success.",
-  },
-];
-
-export default function ServicesPage() {
+export default function Services() {
   return (
-    <div className="min-h-screen bg-background">
-      <PageHero
-        eyebrow="Our Services"
-        title="Endless Options."
-        highlight="One Provider."
-        description="From cloud migration to application modernization, we deliver comprehensive technology solutions that drive business growth."
-      />
+    <div className="pt-16">
+      <section className="bg-gray-50 py-20 px-6">
+        <div className="max-w-7xl mx-auto text-center scroll-reveal">
+          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Our Services</p>
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">We Serve the World Together With You</h1>
+          <p className="text-gray-500 max-w-2xl mx-auto">Welcome to Panaceata, your trusted technology partner. We offer a comprehensive range of services to meet your digital needs.</p>
+        </div>
+      </section>
 
-      {/* Services Detail */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
-          {services.map((service, index) => (
-            <div
-              key={service.title}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${
-                index % 2 === 1 ? "lg:direction-rtl" : ""
-              }`}
-            >
-              <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                  <service.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h2 className="font-display text-3xl font-bold text-foreground mb-4">
-                  {service.title}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {service.description}
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                  {service.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span className="text-sm text-muted-foreground">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <Button
-                  render={<Link href="/contact" />}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
-                >
-                  Get Started <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+      <section className="bg-[#142952] text-white py-16 px-6">
+        <div className="max-w-3xl mx-auto text-center scroll-reveal">
+          <h2 className="text-2xl font-bold mb-4">Why Choose Panaceata?</h2>
+          <p className="text-gray-300 leading-relaxed">We go beyond being a mere service provider — we become your digital accelerator. Our experienced team collaborates closely with you through requirement analysis, UI/UX prototyping, architectural design, development, quality assurance, security, and seamless deployments.</p>
+        </div>
+      </section>
+
+      <section className="py-20 max-w-7xl mx-auto px-6 space-y-24">
+        {services.map((s, i) => (
+          <div key={s.title} className={`flex flex-col ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-12 items-center`}>
+            <div className={`flex-1 ${i % 2 === 0 ? "scroll-slide-left" : "scroll-slide-right"}`}>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">{s.title}</h2>
+              <p className="text-gray-500 leading-relaxed mb-6">{s.desc}</p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {s.features.map((f) => (
+                  <span key={f} className="bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full">{f}</span>
+                ))}
               </div>
-              <div
-                className={`rounded-2xl overflow-hidden border border-border/60 ${
-                  index % 2 === 1 ? "lg:order-1" : ""
-                }`}
-              >
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <Link href="/contact" className="bg-primary text-white font-semibold px-6 py-3 rounded-xl hover:bg-teal-700 transition text-sm inline-block">Discuss This Service</Link>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Our Process */}
-      <section className="py-20 lg:py-28 bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Our Process"
-            title="How We Deliver Results"
-            description="A proven methodology that ensures quality, transparency, and successful outcomes."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {process.map((item) => (
-              <div
-                key={item.step}
-                className="bg-card rounded-2xl border border-border/60 p-6 hover:shadow-lg hover:border-primary/30 transition-all group text-center"
-              >
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-sm font-bold text-primary">
-                    {item.step}
-                  </span>
-                </div>
-                <h3 className="font-display text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+            <div className={`flex-1 ${i % 2 === 0 ? "scroll-slide-right" : "scroll-slide-left"}`}>
+              <img src={s.img} alt={s.title} className="w-full rounded-2xl shadow-md object-cover h-72" />
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Let&apos;s discuss how our services can help you achieve your technology goals.
-          </p>
-          <Button
-            render={<Link href="/contact" />}
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 h-14 text-base"
-          >
-            Start Your Project <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
-        </div>
+        ))}
       </section>
     </div>
   );

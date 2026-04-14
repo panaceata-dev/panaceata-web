@@ -5,7 +5,6 @@ import GlobalPresence from "@/components/sections/GlobalPresence";
 import CaseStudies from "@/components/sections/CaseStudies";
 import Testimonials from "@/components/sections/Testimonials";
 import CTA from "@/components/sections/CTA";
-import PreFooter from "@/components/sections/PreFooter";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <CaseStudies />
       <Testimonials />
       <CTA />
-      <PreFooter />
     </div>
   );
 }

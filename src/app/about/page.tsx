@@ -1,269 +1,77 @@
-"use client";
-
-import PageHero from "@/components/sections/PageHero";
-import { SectionHeader } from "@/components/sections/Services";
-import {
-  Target,
-  Eye,
-  Heart,
-  Users,
-  Award,
-  Globe,
-  Lightbulb,
-  Shield,
-  TrendingUp,
-} from "lucide-react";
-
-const values = [
-  {
-    icon: Lightbulb,
-    title: "Innovation",
-    description:
-      "We embrace emerging technologies and creative thinking to deliver cutting-edge solutions that give our clients a competitive edge.",
-  },
-  {
-    icon: Users,
-    title: "Collaboration",
-    description:
-      "We believe in building strong partnerships with our clients, working together to understand challenges and deliver meaningful results.",
-  },
-  {
-    icon: Shield,
-    title: "Integrity",
-    description:
-      "We uphold the highest standards of honesty, transparency, and ethical conduct in every engagement and interaction.",
-  },
-  {
-    icon: Award,
-    title: "Excellence",
-    description:
-      "We are committed to delivering exceptional quality in every project, continuously improving our processes and exceeding expectations.",
-  },
-  {
-    icon: Globe,
-    title: "Global Mindset",
-    description:
-      "With offices in the USA and Sri Lanka, we bring diverse perspectives and follow-the-sun delivery for maximum efficiency.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Growth-Driven",
-    description:
-      "We focus on solutions that drive measurable business growth, ensuring every investment delivers tangible returns.",
-  },
-];
-
-const milestones = [
-  {
-    year: "2016",
-    title: "Company Founded",
-    description:
-      "Panaceata was established with a vision to deliver world-class software solutions from South Glastonbury, CT.",
-  },
-  {
-    year: "2018",
-    title: "Sri Lanka Office",
-    description:
-      "Expanded globally with a development center in Battaramulla, Sri Lanka, enabling follow-the-sun delivery.",
-  },
-  {
-    year: "2020",
-    title: "Cloud Practice Launch",
-    description:
-      "Launched dedicated cloud migration and managed cloud operations practices to meet growing demand.",
-  },
-  {
-    year: "2022",
-    title: "50+ Projects Milestone",
-    description:
-      "Reached the milestone of 50+ successfully delivered projects across multiple industries and geographies.",
-  },
-  {
-    year: "2024",
-    title: "AI & Data Engineering",
-    description:
-      "Expanded service offerings to include AI-powered solutions and advanced data engineering capabilities.",
-  },
-];
-
-const leadership = [
-  {
-    name: "Chamitha Hewavitharana",
-    role: "Chief Executive Officer",
-    description:
-      "Visionary leader with 15+ years in software development and digital transformation, driving Panaceata's global strategy.",
-  },
-  {
-    name: "Technical Leadership",
-    role: "VP of Engineering",
-    description:
-      "Seasoned engineering leader overseeing architecture, quality, and delivery across all client engagements.",
-  },
-  {
-    name: "Operations Team",
-    role: "Director of Operations",
-    description:
-      "Ensuring seamless project delivery and client satisfaction through efficient processes and dedicated support.",
-  },
-];
-
-export default function AboutPage() {
+export default function About() {
   return (
-    <div className="min-h-screen bg-background">
-      <PageHero
-        eyebrow="About Us"
-        title="Empowering Digital"
-        highlight="Transformation"
-        description="We are a global custom software development company helping businesses accelerate their digital transformation journey with innovative solutions."
-      />
+    <div className="pt-16">
+      {/* Hero — side by side */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="scroll-slide-left">
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">About Us</p>
+            <h1 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-6">Walking With You Throughout Your Journey</h1>
+            <p className="text-gray-500 text-lg mb-6">Panaceata is a global digital software solutions provider who helps small to enterprise level companies accelerate their digital transformation.</p>
+            <p className="text-gray-500 leading-relaxed">Are you an innovator, a startup, or an entrepreneur? Does your idea have the potential to change the world? We know the struggles you face — crossing the digital barriers being one of the hardest, yet one of the most essential. Panaceata loves bringing your idea to life by becoming your trusted digital partner, through thick and thin.</p>
+          </div>
+          <div className="scroll-slide-right">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Panaceata team collaborating" className="w-full rounded-2xl object-cover h-96" />
+          </div>
+        </div>
+      </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-card rounded-2xl border border-border/60 p-8 lg:p-10 hover:shadow-lg hover:border-primary/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <Target className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-                Our Mission
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                To empower businesses worldwide with innovative, scalable, and
-                secure technology solutions that drive growth, efficiency, and
-                competitive advantage. We strive to be a trusted partner in every
-                client&apos;s digital transformation journey.
-              </p>
+      {/* Vision & Mission — white cards on dark navy */}
+      <section className="bg-[#142952] py-20 px-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 stagger">
+          <div className="bg-white rounded-2xl p-10 hover-lift">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+              <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
             </div>
-            <div className="bg-card rounded-2xl border border-border/60 p-8 lg:p-10 hover:shadow-lg hover:border-primary/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <Eye className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-                Our Vision
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                To be a globally recognized technology partner known for
-                delivering transformative digital solutions that create lasting
-                value. We envision a future where every business can harness the
-                full potential of technology.
-              </p>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Our Vision</h2>
+            <p className="text-gray-500 leading-relaxed">Create a better world with equal opportunity for all inventors. We envision a future where every great idea has the technical foundation to become reality.</p>
+          </div>
+          <div className="bg-white rounded-2xl p-10 hover-lift">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+              <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-20 lg:py-28 bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Our Values"
-            title="What Drives Us Forward"
-            description="Our core values define who we are and guide every decision we make."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="bg-card rounded-2xl border border-border/60 p-6 lg:p-8 hover:shadow-lg hover:border-primary/30 transition-all group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <value.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {value.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Company Timeline */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Our Journey"
-            title="Milestones That Define Us"
-            description="From a small team to a global technology partner, here's our story."
-          />
-          <div className="max-w-3xl mx-auto">
-            {milestones.map((milestone, index) => (
-              <div key={milestone.year} className="flex gap-6 mb-8 last:mb-0">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center shrink-0">
-                    <span className="text-xs font-bold text-primary">
-                      {milestone.year}
-                    </span>
-                  </div>
-                  {index < milestones.length - 1 && (
-                    <div className="w-0.5 h-full bg-border mt-2" />
-                  )}
-                </div>
-                <div className="pb-8">
-                  <h3 className="font-display text-lg font-bold text-foreground mb-2">
-                    {milestone.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {milestone.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership */}
-      <section className="py-20 lg:py-28 bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Leadership"
-            title="Meet Our Team"
-            description="The experienced professionals driving Panaceata's vision and growth."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {leadership.map((person) => (
-              <div
-                key={person.name}
-                className="bg-card rounded-2xl border border-border/60 p-6 lg:p-8 hover:shadow-lg hover:border-primary/30 transition-all text-center group"
-              >
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="font-display text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                  {person.name}
-                </h3>
-                <p className="text-sm text-primary font-medium mb-3">
-                  {person.role}
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {person.description}
-                </p>
-              </div>
-            ))}
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Our Mission</h2>
+            <p className="text-gray-500 leading-relaxed">Be the most trusted technology partner for inventors in the productization journey. Eliminate all technical barriers to bring concepts to tangible products that serve people&apos;s needs.</p>
           </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="py-16 lg:py-20 border-t border-border/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <section className="bg-white py-12 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center stagger">
+          {[
+            { value: "50+", label: "Projects Delivered" },
+            { value: "4", label: "Global Offices" },
+            { value: "98%", label: "Client Satisfaction" },
+            { value: "8+", label: "Years Experience" },
+          ].map((s) => (
+            <div key={s.label}>
+              <div className="text-4xl font-black text-primary">{s.value}</div>
+              <div className="text-sm text-gray-500 mt-1">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Values — centered, SVG icons */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-14 scroll-reveal">
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Our Values</p>
+            <h2 className="text-4xl font-black text-gray-900 mb-4">What Drives Us Forward</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">Our core values shape every project we undertake and every relationship we build.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger">
             {[
-              { value: "8+", label: "Years Experience" },
-              { value: "50+", label: "Projects Delivered" },
-              { value: "2", label: "Global Offices" },
-              { value: "98%", label: "Client Satisfaction" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="font-display text-4xl lg:text-5xl font-bold text-primary mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              { title: "Client-Centric", desc: "We treat every client as a valued business partner, not just another project.", icon: <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg> },
+              { title: "Innovation First", desc: "We stay ahead of the technology curve to deliver cutting-edge solutions.", icon: <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> },
+              { title: "Excellence", desc: "Rigorous quality assurance and security at every step of development.", icon: <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg> },
+              { title: "Global Reach", desc: "Offices in the USA and Sri Lanka, delivering technology solutions to clients across the globe.", icon: <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
+            ].map((v) => (
+              <div key={v.title} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover-lift">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">{v.icon}</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{v.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
