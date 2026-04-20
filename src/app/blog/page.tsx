@@ -1,3 +1,12 @@
+import { Metadata } from "next";
+import { generatePageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = generatePageMetadata(
+  "Blog | Tech Insights & Digital Transformation Tips | Panaceata",
+  "Read insights on cloud migration, application modernization, data engineering, and digital transformation from Panaceata tech experts.",
+  "/blog"
+);
+
 const blogPosts = [
   { title: "The Future of Cloud Migration: Trends to Watch in 2025", excerpt: "Cloud migration continues to evolve rapidly. Discover the key trends shaping enterprise cloud strategies.", category: "Cloud", date: "March 15, 2025", readTime: "5 min read", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80" },
   { title: "How AI is Transforming Application Modernization", excerpt: "Artificial intelligence is revolutionizing how legacy applications are assessed, refactored, and modernized.", category: "AI & ML", date: "March 8, 2025", readTime: "7 min read", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" },

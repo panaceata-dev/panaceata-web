@@ -1,4 +1,12 @@
 import Link from "next/link";
+import { Metadata } from "next";
+import { generatePageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = generatePageMetadata(
+  "Products | Innovative Software Solutions | Panaceata",
+  "Explore Panaceata's products: TutorFramework LMS, GiggleNShine Daycare Management, Loan Management System, and more custom solutions.",
+  "/products"
+);
 
 const products = [
   {

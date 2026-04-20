@@ -1,3 +1,12 @@
+import { Metadata } from "next";
+import { generatePageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = generatePageMetadata(
+  "Careers at Panaceata | Join Our Tech Team",
+  "Join Panaceata's growing team of talented developers and tech professionals. Explore career opportunities in software development and cloud solutions.",
+  "/careers"
+);
+
 export default function Careers() {
   return (
     <div className="pt-16">

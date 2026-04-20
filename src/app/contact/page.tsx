@@ -1,6 +1,14 @@
+import { Metadata } from "next";
+import { generatePageMetadata } from "@/lib/seo";
 import { sendContactEmail } from "@/app/actions/contact";
 import ServiceSelect from "@/components/ServiceSelect";
 import CaptchaWidget from "@/components/CaptchaWidget";
+
+export const metadata: Metadata = generatePageMetadata(
+  "Contact Panaceata | Get in Touch for Software Development",
+  "Contact Panaceata for custom software development, cloud solutions, and digital transformation. Offices in USA and Sri Lanka.",
+  "/contact"
+);
 
 export default async function Contact({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
   const { status } = await searchParams;

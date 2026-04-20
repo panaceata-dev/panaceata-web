@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /.next
+Disallow: /api
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+Crawl-delay: 1
+
+Sitemap: https://panaceata.com/sitemap.xml

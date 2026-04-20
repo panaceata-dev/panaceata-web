@@ -37,7 +37,7 @@ export async function sendContactEmail(formData: FormData) {
 
   const { error } = await resend.emails.send({
     from: "Panaceata Website <onboarding@resend.dev>",
-    to: "suvijanadi@gmail.com",
+    to: "info@panaceata.com",
     replyTo: email,
     subject: `New Contact: ${name} — ${service || "General Inquiry"}`,
     html: `

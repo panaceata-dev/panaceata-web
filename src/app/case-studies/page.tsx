@@ -1,4 +1,12 @@
 import Link from "next/link";
+import { Metadata } from "next";
+import { generatePageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = generatePageMetadata(
+  "Case Studies | Real Software Projects | Panaceata",
+  "See how Panaceata delivered successful software solutions across healthcare, fintech, agriculture, retail, and more. Real results, real impact.",
+  "/case-studies"
+);
 
 const caseStudies = [
   { title: "Telemedicine Solution", industry: "Healthcare", desc: "Built a secure telemedicine platform with HD video conferencing, electronic health records integration, and automated appointment scheduling.", results: ["200% increase in patient reach", "40% reduction in no-show rates", "99.9% uptime achieved"], img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" },

@@ -1,3 +1,12 @@
+import { Metadata } from "next";
+import { generatePageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = generatePageMetadata(
+  "About Panaceata Inc | Software Development Company",
+  "Learn about Panaceata's mission, vision, and values. A global software development company committed to digital transformation and innovation.",
+  "/about"
+);
+
 export default function About() {
   return (
     <div className="pt-16">

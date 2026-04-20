@@ -1,4 +1,12 @@
 import Link from "next/link";
+import { Metadata } from "next";
+import { generatePageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = generatePageMetadata(
+  "Software Development Services | Cloud Migration & Modernization | Panaceata",
+  "Custom software development, cloud migration, data engineering, and managed cloud operations services. Transform your business with Panaceata's expertise.",
+  "/services"
+);
 
 const services = [
   { title: "Application Modernization Services", desc: "Experience enhanced performance and improved user satisfaction with our cutting-edge application modernization services. We revamp your outdated applications, incorporating the latest technologies and industry best practices.", features: ["Legacy System Migration", "UI/UX Redesign", "Microservices Architecture", "Performance Optimization"], img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&q=80" },
