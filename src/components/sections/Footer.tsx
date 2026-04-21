@@ -140,21 +140,26 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                <span className="text-sm text-accent-foreground/70">
+                <a
+                  href="https://maps.google.com/?q=5+Senator+Buck+Court,+South+Glastonbury,+CT+06073,+USA"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-accent-foreground/70 hover:text-primary transition-colors"
+                >
                   5 Senator Buck Court, South Glastonbury, CT 06073, USA
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-sm text-accent-foreground/70">
+                <a href="tel:+18605932437" className="text-sm text-accent-foreground/70 hover:text-primary transition-colors">
                   +1 (860) 593-2437
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-sm text-accent-foreground/70">
+                <a href="mailto:info@panaceata.com" className="text-sm text-accent-foreground/70 hover:text-primary transition-colors">
                   info@panaceata.com
-                </span>
+                </a>
               </li>
             </ul>
           </div>

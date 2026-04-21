@@ -40,7 +40,7 @@ export default async function Contact({ searchParams }: { searchParams: Promise<
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Email</p>
-                    <p className="text-sm font-medium text-foreground">info@panaceata.com</p>
+                    <a href="mailto:info@panaceata.com" className="text-sm font-medium text-foreground hover:text-primary transition-colors">info@panaceata.com</a>
                   </div>
                 </div>
 
@@ -65,11 +65,11 @@ export default async function Contact({ searchParams }: { searchParams: Promise<
                   <p className="text-sm font-medium text-foreground">Panaceata Inc</p>
                   <div className="flex items-start gap-2 mt-2">
                     <svg className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-                    <p className="text-xs text-muted-foreground">5 Senator Buck Court, South Glastonbury, CT 06073, USA</p>
+                    <a href="https://maps.google.com/?q=5+Senator+Buck+Court,+South+Glastonbury,+CT+06073,+USA" target="_blank" rel="noreferrer" className="text-xs text-muted-foreground hover:text-primary transition-colors">5 Senator Buck Court, South Glastonbury, CT 06073, USA</a>
                   </div>
                   <div className="flex items-center gap-2 mt-1">
                     <svg className="w-3.5 h-3.5 text-muted-foreground shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                    <p className="text-xs text-muted-foreground">+1 (860) 593-2437</p>
+                    <a href="tel:+18605932437" className="text-xs text-muted-foreground hover:text-primary transition-colors">+1 (860) 593-2437</a>
                   </div>
                 </div>
 
@@ -78,11 +78,11 @@ export default async function Contact({ searchParams }: { searchParams: Promise<
                   <p className="text-sm font-medium text-foreground">Panaceata (Private) Limited</p>
                   <div className="flex items-start gap-2 mt-2">
                     <svg className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-                    <p className="text-xs text-muted-foreground">328/2, Temple Lane, Kaduwela Road, Battaramulla, Sri Lanka</p>
+                    <a href="https://maps.google.com/?q=328/2,+Temple+Lane,+Kaduwela+Road,+Battaramulla,+Sri+Lanka" target="_blank" rel="noreferrer" className="text-xs text-muted-foreground hover:text-primary transition-colors">328/2, Temple Lane, Kaduwela Road, Battaramulla, Sri Lanka</a>
                   </div>
                   <div className="flex items-center gap-2 mt-1">
                     <svg className="w-3.5 h-3.5 text-muted-foreground shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                    <p className="text-xs text-muted-foreground">+94 011 287 62 00</p>
+                    <a href="tel:+94112876200" className="text-xs text-muted-foreground hover:text-primary transition-colors">+94 011 287 62 00</a>
                   </div>
                 </div>
               </div>
