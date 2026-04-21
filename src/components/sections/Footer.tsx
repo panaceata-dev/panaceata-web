@@ -196,6 +196,14 @@ export default function Footer() {
             >
               Instagram
             </a>
+            <a
+              href="https://x.com/panaceata"
+              target="_blank"
+              rel="noreferrer"
+              className="text-accent-foreground/50 hover:text-primary transition-colors text-xs"
+            >
+              X
+            </a>
           </div>
         </div>
       </div>
